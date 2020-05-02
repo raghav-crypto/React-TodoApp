@@ -1,0 +1,17 @@
+.container{
+    padding: 1rem;
+}
+
+.btn{
+    margin-left: 10px;
+    display: inline-block;
+    border: none;
+    background: white;
+    color: #ffacb7;
+    padding: 7px 20px;
+    cursor: pointer;
+}
+
+.btn :hover{
+    background: #fff;
+}

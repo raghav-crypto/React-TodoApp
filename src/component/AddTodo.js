@@ -1,0 +1,45 @@
+import React from 'react';
+import PropTypes from 'prop-types'
+class AddTodo extends React.Component {
+
+    state = {
+        title: ''
+    }
+
+    onChange = (e) => this.setState({
+        [e.target.name]: e.target.value
+    })
+
+    onSubmit = (e) => {
+        e.preventDefault()
+        this.props.AddTodo(this.state.title) 
+        this.setState( {title: ''})
+    }
+  render() {
+        return (
+             <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
+                 <input 
+                 type='text' 
+                 name='title' 
+                 style={{ flex: '10', padding: '5px', border:'none', height: '5vh', fontSize: '24px', margin:'20px'}}
+                 placeholder='Add Todo...'
+                 value={this.state.title}
+                 onChange={this.onChange}
+
+/>
+                 <input 
+                 type='submit' 
+                 value='submit'
+                 className='btn'
+                 style={{ flex: '1', fontSize: '24px', margin:'20px'}}/>
+             </form>
+        )
+    }
+}
+AddTodo.propTypes = {
+    addTodo: PropTypes.func.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired
+}
+
+export default AddTodo;
